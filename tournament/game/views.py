@@ -117,18 +117,18 @@ def match(request):
         away.seen = True
         away.save()
 
+    # if we have done enough matches
+    if int(current_match) > num_matches:
+        champion = home if home_won else away
+        context = {"champion": champion, "message": "Finished " + str(num_matches) + " matches"}
+        return render(request, 'game/champion.html', context)
+
     # Replace loser
     if home_won:
         away = get_random_unseen_item(filters)
     else:
         home = away
         away = get_random_unseen_item(filters)
-
-    # if we have done enough matches
-    if int(current_match) > num_matches:
-        champion = home if away is None else away
-        context = {"champion": champion, "message": "Finished " + str(num_matches) + " matches"}
-        return render(request, 'game/champion.html', context)
 
     # if either away or home are none, we have run out of items and we have a champion
     if home is None or away is None:
