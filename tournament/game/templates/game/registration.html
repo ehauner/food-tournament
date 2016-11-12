@@ -5,11 +5,11 @@
 </head>
 
 <h1>
-  Pick your starting item
+  Pick Your Starting Item
 </h1>
 
 {% for item in items %}
-  <a href="{% url 'rules' %}?first={{item.name}}">{{ item.name|title }}<br>
+  <a href="{% url 'rules' %}?first={{item.name}}">{{ item.name|title }}</a><br>
 {% endfor %}
 
 </div>

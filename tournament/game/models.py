@@ -4,6 +4,7 @@ from django.forms import ModelForm
 from django.utils.encoding import python_2_unicode_compatible
 import os
 from django.conf import settings
+import random
 
 # Create your models here.
 
@@ -15,6 +16,9 @@ class Item(models.Model):
     description = models.CharField(max_length=200)
     photo_url = models.CharField(max_length=200)
     group = models.CharField(max_length=200)
+
+    # Has it been seen in the match?
+    seen = models.BooleanField(default = False)
 
     # Matches
     matches_played = models.IntegerField(default=0)
@@ -52,9 +56,8 @@ class Item(models.Model):
 @python_2_unicode_compatible  # only if you need to support Python 2
 class Tournament(models.Model):
 
-    name = models.CharField(max_length=200)
     num_matches = models.IntegerField(default=0)
-    current_match = models.IntegerField(default=0)
+    current_match = models.IntegerField(default=1)
 
     def __str__(self):
         return self.name

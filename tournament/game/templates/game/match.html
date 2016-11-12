@@ -5,8 +5,44 @@
 
 <body>
 
-  <h1>Match 1</h1>
+  <h1>Match {{ current_match }}</h1>
 
-{{ first }}
+  <table width="100%">
+    <tr>
+      <td width="50%">
+        <h3>{{ home.name|title }}</h3>
+        <p>{{ home.desciption }}</p>
+        <img src="{{ home.photo_url }}" height="200px">
+        <!-- Print filters -->
+        {% for filter in filters %}
+          <p>{{ filter|capfirst }}</p>
+        {% endfor %}
+        <!-- Print attributes -->
+        {% for stat, value in home_dict.items %}
+          <p>{{ stat|capfirst }}: {{ value }}</p>
+        {% endfor %}
+        <br>
+        <!-- Winner button -->
+        <a href="{% url 'match' %}?home={{home}}&away={{away}}&winner={{home}}{{stats_url_string}}{{filters_url_string}}">Winner</a>
+
+      </td>
+      <td width="50%">
+        <h3>{{ away.name|title }}</h3>
+        <p>{{ away.desciption }}</p>
+        <img src="{{ away.photo_url }}" height="200px">
+        <!-- Print filters -->
+        {% for filter in filters %}
+          <p>{{ filter|capfirst }}</p>
+        {% endfor %}
+        <!-- Print attributes -->
+        {% for stat, value in away_dict.items %}
+          <p>{{ stat|capfirst }}: {{ value }}</p>
+        {% endfor %}
+        <br>
+        <!-- Winner button -->
+        <a href="{% url 'match' %}?home={{home}}&away={{away}}&winner={{away}}{{stats_url_string}}{{filters_url_string}}">Winner</a>
+      </td>
+    </tr>
+  </table>
 
 </body>
