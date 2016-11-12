@@ -67,40 +67,40 @@
       </td>
     </tr>
     <tr>
-        <td class="match-centre-wrapper">
-          <img src="{{ home.photo_url }}" height="200px">
-          <p>Serving Size: {% add_units home.serving_size "serving_size" %}</p>
-          <p>Price per serving: {% add_units home.price_per_serving "price_per_serving" %}</p>
-          <!-- Print filters -->
-          {% for filter in filters %}
-            <p>{{ filter|capfirst }}</p>
-          {% endfor %}
-          <!-- Print attributes -->
-          {% for stat, value in home_dict.items %}
-            <input id="home" name="{{ stat }}" value="{{ value }}" type="hidden">
-            <p><span id="home-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></p>
-          {% endfor %}
-          <br>
-          <!-- Winner button -->
-          <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{home}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
-        </td>
-        <td class="match-centre-wrapper">
-          <img src="{{ away.photo_url }}" height="200px">
-          <p>Serving Size: {% add_units away.serving_size "serving_size" %}</p>
-          <p>Price per serving: {% add_units away.price_per_serving "price_per_serving" %}</p>
-          <!-- Print filters -->
-          {% for filter in filters %}
-            <p>{{ filter|capfirst }}</p>
-          {% endfor %}
-          <!-- Print attributes -->
-          {% for stat, value in away_dict.items %}
-            <input id="away" name="{{ stat }}" value="{{ value }}" type="hidden">
-            <p><span id="away-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></p>
-          {% endfor %}
-          <br>
-          <!-- Winner button -->
-          <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{away}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
-        </td>
+      <td class="match-centre-wrapper">
+        <img src="{{ home.photo_url }}" height="200px">
+        <p>Serving Size: {% add_units home.serving_size "serving_size" %}</p>
+        <p>Price per serving: {% add_units home.price_per_serving "price_per_serving" %}</p>
+        <!-- Print filters -->
+        {% for filter in filters %}
+          <p>{{ filter|capfirst }}</p>
+        {% endfor %}
+        <!-- Print attributes -->
+        {% for stat, value in home_dict.items %}
+          <input id="home" name="{{ stat }}" value="{{ value }}" type="hidden">
+          <p><span id="home-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></p>
+        {% endfor %}
+        <br>
+        <!-- Winner button -->
+        <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{home}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
+      </td>
+      <td class="match-centre-wrapper">
+        <img src="{{ away.photo_url }}" height="200px">
+        <p>Serving Size: {% add_units away.serving_size "serving_size" %}</p>
+        <p>Price per serving: {% add_units away.price_per_serving "price_per_serving" %}</p>
+        <!-- Print filters -->
+        {% for filter in filters %}
+          <p>{{ filter|capfirst }}</p>
+        {% endfor %}
+        <!-- Print attributes -->
+        {% for stat, value in away_dict.items %}
+          <input id="away" name="{{ stat }}" value="{{ value }}" type="hidden">
+          <p><span id="away-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></p>
+        {% endfor %}
+        <br>
+        <!-- Winner button -->
+        <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{away}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
+      </td>
     </tr>
   </table>
 </body>
