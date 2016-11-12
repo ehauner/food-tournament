@@ -1,62 +1,68 @@
+{% load staticfiles %}
+
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'game/css/style.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Faster+One|Slabo+13px" rel="stylesheet">
     <title>Upload Items</title>
 </head>
 <body>
 
-<h1>
-  Upload Items
-</h1>
+  <h1 class="heading">
+    <span class="background">Upload Items</span>
+  </h1>
 
-<style>
-  ul {
-    columns: 3;
-    -webkit-columns: 3;
-    -moz-columns: 3;
-    list-style-position: inside;
-  }
-</style>
+  <style>
+    ul {
+      columns: 3;
+      -webkit-columns: 3;
+      -moz-columns: 3;
+      list-style-position: inside;
+    }
+  </style>
 
-<p>
-  Upload a csv file of comparable items and these attributes
-</p>
-<ul>
-  <li>name</li>
-  <li>description</li>
-  <li>photo_url</li>
-  <li>group</li>
-  <li>matches_played</li>
-  <li>matches_won</li>
-  <li>price_per_serving</li>
-  <li>serving_size</li>
-  <li>calories</li>
-  <li>fat</li>
-  <li>cholesterol</li>
-  <li>sodium</li>
-  <li>carbohydrates</li>
-  <li>sugar</li>
-  <li>protein</li>
-  <li>vitA</li>
-  <li>vitC</li>
-  <li>calcium</li>
-  <li>iron</li>
-  <li>fiber</li>
-  <li>vegan</li>
-  <li>organic</li>
-  <li>gluten-free</li>
-  <li>nut-free</li>
-  <li>lactose-free</li>
-</ul>
+  <div class="upload-centre">
+    <p>
+      <i>Upload a .csv file of comparable items with the following attributes:</i>
+    </p>
+    <ul>
+      <li>name</li>
+      <li>description</li>
+      <li>photo_url</li>
+      <li>group</li>
+      <li>matches_played</li>
+      <li>matches_won</li>
+      <li>price_per_serving</li>
+      <li>serving_size</li>
+      <li>calories</li>
+      <li>fat</li>
+      <li>cholesterol</li>
+      <li>sodium</li>
+      <li>carbohydrates</li>
+      <li>sugar</li>
+      <li>protein</li>
+      <li>vitA</li>
+      <li>vitC</li>
+      <li>calcium</li>
+      <li>iron</li>
+      <li>fiber</li>
+      <li>vegan</li>
+      <li>organic</li>
+      <li>gluten-free</li>
+      <li>nut-free</li>
+      <li>lactose-free</li>
+    </ul>
 
-<!-- Upload form. Note enctype attribute! -->
-<form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  <p>{{ form.non_field_errors }}</p>
-  <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
-  <p>
-    {{ form.docfile.errors }}
-    {{ form.docfile }}
-  </p>
-  <p><input type="submit" value="Upload" /></p>
-</form>
+    <!-- Upload form. Note enctype attribute! -->
+    <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <p>{{ form.non_field_errors }}</p>
+      <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+      <p>
+        {{ form.docfile.errors }}
+        {{ form.docfile }}
+      </p>
+      <p><input type="submit" value="Upload" /></p>
+    </form>
+  </div>
 </body>

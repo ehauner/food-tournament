@@ -1,5 +1,9 @@
+{% load staticfiles %}
+
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'game/css/style.css' %}" />
+  <link href="https://fonts.googleapis.com/css?family=Faster+One|Slabo+13px" rel="stylesheet">
   <title>Set Game Rules</title>
 </head>
 
@@ -22,50 +26,53 @@
 </script>
 
 <body>
-  <h1>
-    Set Game Rules
+  <h1 class="heading">
+    <span class="background">Set Game Rules</span>
   </h1>
 
-  First competitor: <b>{{ first|title }}</b>
+  <div class="rules-centre">
 
-  <form action="{% url 'match' %}" method="GET">
-    {% csrf_token %}
-    <p>Pick up to five comparison stats</p>
-    <input type="text" name="home" value="{{ first }}" style="display:none;">
-    <input type="text" name="winner" value="{{ first }}" style="display:none;">
-    <input type="text" name="first_match" value="true" style="display:none;">
-    <input id="sugar" type="checkbox" name="stats" value="sugar"><label for="sugar">Sugar</label><br>
-    <input id="calories" type="checkbox" name="stats" value="calories"><label for="calories">Calories</label><br>
-    <input id="fiber" type="checkbox" name="stats" value="fiber"><label for="fiber">Fiber</label><br>
-    <input id="fat" type="checkbox" name="stats" value="fat"><label for="fat">Fat</label><br>
-    <input id="vitC" type="checkbox" name="stats" value="vitC"><label for="vitC">Vitamin C</label><br>
-    <input id="vitA" type="checkbox" name="stats" value="vitA"><label for="vitA">Vitamin A</label><br>
-    <input id="iron" type="checkbox" name="stats" value="iron"><label for="iron">Iron</label><br>
-    <input id="sodium" type="checkbox" name="stats" value="sodium"><label for="sodium">Sodium</label><br>
-    <input id="protein" type="checkbox" name="stats" value="protein"><label for="protein">Protein</label><br>
-    <input id="calcium" type="checkbox" name="stats" value="calcium"><label for="calcium">Calcium</label><br>
-    <p>Must be</p>
-    <input id="gluten_free" type="checkbox" name="filters" value="gluten_free" {% if first.gluten_free != True %}disabled{% endif %}><label for="gluten_free">Gluten-free</label><br>
-    <input id="vegetarian" type="checkbox" name="filters" value="vegetarian" {% if first.vegetarian != True %}disabled{% endif %}><label for="vegetarian">Vegetarian</label><br>
-    <input id="vegan" type="checkbox" name="filters" value="vegan" {% if first.vegan != True %}disabled{% endif %}><label for="vegan">Vegan</label><br>
-    <input id="organic" type="checkbox" name="filters" value="organic" {% if first.organic != True %}disabled{% endif %}><label for="organic">Organic</label><br>
-    <input id="nut_free" type="checkbox" name="filters" value="nut_free" {% if first.nut_free != True %}disabled{% endif %}><label for="nut_free">Nut-free</label><br>
-    <input id="lactose_free" type="checkbox" name="filters" value="lactose_free" {% if first.lactose_free != True %}disabled{% endif %}><label for="lactose_free">Lactose-free</label><br>
-    <br>Best of
-    <select name="num_matches">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3" selected>3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select>
-    matches
-    <br><br>
-    <input type="submit" value="Play">
-  </form>
+    First competitor: <b>{{ first|title }}</b>
+
+    <form action="{% url 'match' %}" method="GET">
+      {% csrf_token %}
+      <p>Pick up to five comparison stats</p>
+      <input type="text" name="home" value="{{ first }}" style="display:none;">
+      <input type="text" name="winner" value="{{ first }}" style="display:none;">
+      <input type="text" name="first_match" value="true" style="display:none;">
+      <input id="sugar" type="checkbox" name="stats" value="sugar"><label for="sugar">Sugar</label><br>
+      <input id="calories" type="checkbox" name="stats" value="calories"><label for="calories">Calories</label><br>
+      <input id="fiber" type="checkbox" name="stats" value="fiber"><label for="fiber">Fiber</label><br>
+      <input id="fat" type="checkbox" name="stats" value="fat"><label for="fat">Fat</label><br>
+      <input id="vitC" type="checkbox" name="stats" value="vitC"><label for="vitC">Vitamin C</label><br>
+      <input id="vitA" type="checkbox" name="stats" value="vitA"><label for="vitA">Vitamin A</label><br>
+      <input id="iron" type="checkbox" name="stats" value="iron"><label for="iron">Iron</label><br>
+      <input id="sodium" type="checkbox" name="stats" value="sodium"><label for="sodium">Sodium</label><br>
+      <input id="protein" type="checkbox" name="stats" value="protein"><label for="protein">Protein</label><br>
+      <input id="calcium" type="checkbox" name="stats" value="calcium"><label for="calcium">Calcium</label><br>
+      <p>Must be</p>
+      <input id="gluten_free" type="checkbox" name="filters" value="gluten_free" {% if first.gluten_free != True %}disabled{% endif %}><label for="gluten_free">Gluten-free</label><br>
+      <input id="vegetarian" type="checkbox" name="filters" value="vegetarian" {% if first.vegetarian != True %}disabled{% endif %}><label for="vegetarian">Vegetarian</label><br>
+      <input id="vegan" type="checkbox" name="filters" value="vegan" {% if first.vegan != True %}disabled{% endif %}><label for="vegan">Vegan</label><br>
+      <input id="organic" type="checkbox" name="filters" value="organic" {% if first.organic != True %}disabled{% endif %}><label for="organic">Organic</label><br>
+      <input id="nut_free" type="checkbox" name="filters" value="nut_free" {% if first.nut_free != True %}disabled{% endif %}><label for="nut_free">Nut-free</label><br>
+      <input id="lactose_free" type="checkbox" name="filters" value="lactose_free" {% if first.lactose_free != True %}disabled{% endif %}><label for="lactose_free">Lactose-free</label><br>
+      <br>Best of
+      <select name="num_matches">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      matches
+      <br><br>
+      <input class="go-button" type="submit" value="PLAY">
+    </form>
+  </div>
 </body>
