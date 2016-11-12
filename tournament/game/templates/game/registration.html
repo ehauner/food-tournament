@@ -8,16 +8,20 @@
 
 
   <h1 class="heading">
-    <span class="background">Pick Your Starting Item</span>
+    <span class="background">Pick Your First Competitor</span>
   </h1>
 
 <div class="registration-centre">
-  <div style="text-align: center;">
-    {% for item in items %}
-      <a href="{% url 'rules' %}?first={{item.name}}">
-        {{ item.name|title }}
-      </a>
-      <br>
-    {% endfor %}
-</div>
+  <div class="bottom">
+  {% for item in items %}
+    <div class="col">
+      <img src="{{ item.photo_url }}" height="100px">
+      <p style="width: 80px;">
+        <a href="{% url 'rules' %}?first={{item.name}}">
+          {{ item.name|title }}
+        </a>
+      </p>
+    </div>
+  {% endfor %}
+  </div>
 </div>

@@ -77,12 +77,12 @@ html {
 }
 
 .registration-centre {
-  width: 500px;
+  width: 800px;
   height: 100%;
   position: absolute;
-  top:170px;
+  top: 220px;
   bottom: 0;
-  left: 0;
+  left: 50px;
   right: 0;
   margin: auto;
 }
@@ -156,6 +156,7 @@ html {
 
 .champion-label {
   position: absolute;
+  width: 200px;
   top: 180px;
   left: 100px;
   text-align: center;
@@ -165,16 +166,31 @@ html {
 .cart-button {
   font-family: 'Slabo 13px', serif;
   font-size: 15px;
-  width: 130px;
+  width: 200px;
   padding: 5px 15px;
   background-color: rgba(153, 204, 255, 1);
   border: 2px solid #1e73c9;
   cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  position: absolute;
-  top: 50px;
-  right: 45px;
+  position:absolute;
+  top: 320px;
+  right: 5px;
+}
+
+.bottom {
+  height: 300px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: none;
+  margin-bottom: none;
+}
+
+.col {
+  float: left;
+  width: 20%;
+  padding-bottom: 30px;
 }
 
 a:link, a:visited, a:active {
