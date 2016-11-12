@@ -145,20 +145,43 @@ html {
   padding-bottom: 25px;
 }
 
+.champion-heading {
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #7bbef2;
+  padding: 5px 0 5px 0;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.champion-label {
+  position: absolute;
+  top: 180px;
+  left: 100px;
+  text-align: center;
+  font-size: 35px;
+}
+
+.cart-button {
+  font-family: 'Slabo 13px', serif;
+  font-size: 15px;
+  width: 130px;
+  padding: 5px 15px;
+  background-color: rgba(153, 204, 255, 1);
+  border: 2px solid #1e73c9;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50px;
+  right: 45px;
+}
+
 a:link, a:visited, a:active {
   text-decoration: none;
   color: black;
 }
 
 a:hover {
-  background-color: #adebad;
-}
-
-hr {
-  display: block;
-  height: 2px;
-  border: 0;
-  border-top: 2px solid #0059b3;
-  margin: 1em 0;
-  padding: 0;
+  background-color: #00cc00;
 }

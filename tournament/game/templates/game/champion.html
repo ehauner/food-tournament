@@ -1,4 +1,17 @@
-<h1>
-  <b>{{ champion|title }}</b> is your champion
-</h1>
-Message: {{ message }}
+{% load staticfiles %}
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'game/css/style.css' %}" />
+  <link href="https://fonts.googleapis.com/css?family=Slabo+13px" rel="stylesheet">
+  <title>Champion</title>
+</head>
+
+<body class="rules-centre">
+  <h1 class="champion-heading"><i>{{ champion|title }}</i><br>is your champion!</h1>
+  <div class="champion-label">{{ champion|title }}
+    <br>
+    <button class="cart-button">Add to cart for 10% off {{ champion|title }}</button>
+  </div>
+  <img width="400px" src="{% static 'game/images/trophy.png' %}"></img>
+  <!-- Message: {{ message }} -->
+</body>
