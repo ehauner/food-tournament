@@ -1,0 +1,15 @@
+{% load staticfiles %}
+
+<head>
+<title>Team Registration</title>
+</head>
+
+<h1>
+  Pick your starting item
+</h1>
+
+{% for item in items %}
+  <a href="{% url 'rules' %}?first={{item.name}}">{{ item.name|title }}<br>
+{% endfor %}
+
+</div>

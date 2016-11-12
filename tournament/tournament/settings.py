@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'game',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,6 +53,10 @@ ROOT_URLCONF = 'tournament.urls'
 
 WSGI_APPLICATION = 'tournament.wsgi.application'
 
+# Files
+# https://docs.djangoproject.com/en/dev/topics/files/
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

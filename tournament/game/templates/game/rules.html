@@ -1,0 +1,63 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <title>Set Game Rules</title>
+</head>
+
+<script>
+  // Limit to 5 maximum stats selections
+  $(function(){
+      var max = 5;
+      var checkboxes = jQuery('input[name="stats"]');
+      checkboxes.click(function(){
+          var current = checkboxes.filter(':checked').length;
+          return current <= max;
+      });
+  });
+</script>
+
+<body>
+  <h1>
+    Set Game Rules
+  </h1>
+
+  First competitor: <b>{{ first|title }}</b>
+
+  <form action="{% url 'match' %}" method="GET">
+    {% csrf_token %}
+    <p>Pick up to five comparison stats</p>
+    <input type="text" name="first" value="{{ first }}" style="display:none;">
+    <input id="sugar" type="checkbox" name="stats" value="sugar"><label for="sugar">Sugar</label><br>
+    <input id="calories" type="checkbox" name="stats" value="calories"><label for="calories">Calories</label><br>
+    <input id="fiber" type="checkbox" name="stats" value="fiber"><label for="fiber">Fiber</label><br>
+    <input id="fat" type="checkbox" name="stats" value="fat"><label for="fat">Fat</label><br>
+    <input id="vitC" type="checkbox" name="stats" value="vitC"><label for="vitC">Vitamin C</label><br>
+    <input id="vitA" type="checkbox" name="stats" value="vitA"><label for="vitA">Vitamin A</label><br>
+    <input id="iron" type="checkbox" name="stats" value="iron"><label for="iron">Iron</label><br>
+    <input id="sodium" type="checkbox" name="stats" value="sodium"><label for="sodium">Sodium</label><br>
+    <input id="protein" type="checkbox" name="stats" value="protein"><label for="protein">Protein</label><br>
+    <input id="calcium" type="checkbox" name="stats" value="calcium"><label for="calcium">Calcium</label><br>
+    <p>Must be</p>
+    <input id="gluten_free" type="checkbox" name="filter" value="gluten_free"><label for="gluten_free">Gluten-free</label><br>
+    <input id="vegetarian" type="checkbox" name="filter" value="vegetarian"><label for="vegetarian">Vegetarian</label><br>
+    <input id="vegan" type="checkbox" name="filter" value="vegan"><label for="vegan">Vegan</label><br>
+    <input id="organic" type="checkbox" name="filter" value="organic"><label for="organic">Organic</label><br>
+    <input id="nut_free" type="checkbox" name="filter" value="nut_free"><label for="nut_free">Nut-free</label><br>
+    <input id="lactose_free" type="checkbox" name="filter" value="lactose_free"><label for="lactose_free">Lactose-free</label><br>
+    <br>Best of
+    <select>
+      <option value="num_matches">1</option>
+      <option value="num_matches">2</option>
+      <option value="num_matches" selected>3</option>
+      <option value="num_matches">4</option>
+      <option value="num_matches">5</option>
+      <option value="num_matches">6</option>
+      <option value="num_matches">7</option>
+      <option value="num_matches">8</option>
+      <option value="num_matches">9</option>
+      <option value="num_matches">10</option>
+    </select>
+    matches
+    <br><br>
+    <input type="submit" value="Play">
+  </form>
+</body>
