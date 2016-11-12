@@ -1,0 +1,6 @@
+name,description,photo_url,group,matches_played,matches_won,price_per_serving,serving_size,calories,fat,cholesterol,sodium,carbohydrates,sugar,protein,vitA,vitC,calcium,iron,fiber,vegetarian,vegan,organic,gluten-free,nut-free,lactose-free,target_serving_size
+honey nut cheerios,sweetened whole grain oat cereal with real honey and natural almond flavor,http://www.cheerios.com/~/media/9D1796ED302D4B929789F810A1C427D1.ashx,cereal,0,0,0.25,28,110,1.5,0,160,22,9,2,10,10,10,25,2,1,0,0,0,0,1,30
+raisin bran,two scoops of raisins,https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508655/kicproductimage-110082_rbc.png,cereal,0,0,0.22,53,190,1,0,200,45,19,4,10,2,0,25,4,1,0,0,0,0,1,30
+cocoa puffs,naturally and artificially flavored  frosted corn puffs,https://images-na.ssl-images-amazon.com/images/I/51mE29ppxKL.jpg,cereal,0,0,0.27,27,100,1.5,0,100,23,9,1,10,10,10,25,1,1,1,0,0,1,1,30
+rice krispies,toasted rice cereal,https://images.kglobalservices.com/www.ricekrispies.com/en_us/product/product_4508660/kicproductimage-127505_rk-c_original_3d.png,cereal,0,0,0.2,30,110,1.5,0,160,24,2,2,0,0,0,6,2,1,1,0,1,1,0,30
+froot loops,loop-shaped froots,https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508497/prod_img-3394699_fl_fp.jpeg,cereal,0,0,0.23,30,118,1,0,141,26,13,1,10,23,2,24,1,1,1,0,0,1,1,30
