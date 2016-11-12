@@ -21,7 +21,7 @@
         {% endfor %}
         <!-- Print attributes -->
         {% for stat, value in home_dict.items %}
-          <p>{{ stat|capfirst }}: {% add_units value stat %}</p>
+          <p>{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</p>
         {% endfor %}
         <br>
         <!-- Winner button -->
@@ -38,7 +38,7 @@
         {% endfor %}
         <!-- Print attributes -->
         {% for stat, value in away_dict.items %}
-          <p>{{ stat|capfirst }}: {% add_units value stat %}</p>
+          <p>{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</p>
         {% endfor %}
         <br>
         <!-- Winner button -->

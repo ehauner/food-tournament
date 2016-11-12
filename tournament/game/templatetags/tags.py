@@ -1,6 +1,7 @@
 from django import template
 from django.utils.safestring import mark_safe
 from django.conf import settings
+import re
 
 register = template.Library()
 
@@ -36,3 +37,9 @@ def add_units(value, stat):
     elif stat == "fiber":
         value = value + "g"
     return mark_safe(value)
+
+@register.filter(name='expand_vitamins')
+def expand_vitamins(string):
+    if "vit" in string:
+        string = string.replace("vit", "vitamin ")
+    return mark_safe(string)
