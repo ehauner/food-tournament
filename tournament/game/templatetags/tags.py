@@ -9,7 +9,7 @@ register = template.Library()
 def add_units(value, stat):
     value = str(value)
     if stat == "price_per_serving":
-        value = "$" + value + "/serving"
+        value = "$" + value
     elif stat == "serving_size":
         value = value + "g"
     elif stat == "calories":
@@ -35,6 +35,8 @@ def add_units(value, stat):
     elif stat == "iron":
         value = value + "%"
     elif stat == "fiber":
+        value = value + "g"
+    elif stat == "serving_size":
         value = value + "g"
     return mark_safe(value)
 

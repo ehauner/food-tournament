@@ -25,22 +25,22 @@ class Item(models.Model):
     matches_won = models.IntegerField(default=0)
 
     # Price
-    price_per_serving = models.IntegerField(default=0)
+    price_per_serving = models.FloatField(default=0.0)
     serving_size = models.IntegerField(default=0)
 
     # Nutritional attributes
-    calories = models.IntegerField(default=0)
-    fat = models.IntegerField(default=0)
-    cholesterol = models.IntegerField(default=0)
-    sodium = models.IntegerField(default=0)
-    carbohydrates = models.IntegerField(default=0)
-    sugar = models.IntegerField(default=0)
-    protein = models.IntegerField(default=0)
+    calories = models.FloatField(default=0.0)
+    fat = models.FloatField(default=0.0)
+    cholesterol = models.FloatField(default=0.0)
+    sodium = models.FloatField(default=0.0)
+    carbohydrates = models.FloatField(default=0.0)
+    sugar = models.FloatField(default=0.0)
+    protein = models.FloatField(default=0.0)
     vitA = models.IntegerField(default=0)
     vitC = models.IntegerField(default=0)
     calcium = models.IntegerField(default=0)
     iron = models.IntegerField(default=0)
-    fiber = models.IntegerField(default=0)
+    fiber = models.FloatField(default=0.0)
 
     # Filters
     vegetarian = models.BooleanField(default = False)
