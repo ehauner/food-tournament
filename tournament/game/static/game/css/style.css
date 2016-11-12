@@ -88,10 +88,10 @@ html {
 }
 
 .rules-centre {
-  width: 400px;
+  width: 350px;
   height: 100%;
   position: absolute;
-  top:170px;
+  top:130px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -117,13 +117,18 @@ html {
 
 .go-button {
   font-family: 'Faster One', cursive;
-  font-size: 25px;
+  font-size: 30px;
   padding: 5px 20px;
   background-color: #adebad;
   border: 0 none;
   cursor: pointer;
   -webkit-border-radius: 8px;
   border-radius: 8px;
+  color: #1b6d1e;
+}
+
+input.play[type="submit"]:hover {
+  color: #05ba0b;
 }
 
 .winner-button {
