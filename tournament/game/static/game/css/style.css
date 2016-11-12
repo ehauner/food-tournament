@@ -74,6 +74,15 @@ html {
   margin: auto;
 }
 
+.match-top-wrapper {
+  width: 30%;
+  height: 100%;
+  text-align: top;
+  position: relative;
+  margin: auto;
+  vertical-align: top;
+}
+
 .go-button {
   font-family: 'Faster One', cursive;
   font-size: 25px;

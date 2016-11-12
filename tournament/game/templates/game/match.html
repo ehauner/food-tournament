@@ -7,6 +7,35 @@
   <title>Match</title>
 </head>
 
+<style>
+  .good {
+    background-color: green;
+  }
+  .bad {
+    background-color: red;
+  }
+</style>
+
+<script>
+  $(function() {
+    {% for stat, num in home_dict.items %}
+      var {{ stat }}_array = $('input[name={{ stat }}]');
+      if (parseFloat({{ stat }}_array[0].value) > parseFloat({{ stat }}_array[1].value)) {
+        var goodId = {{ stat }}_array[0].id;
+        $('p#' + goodId + "-{{ stat }}").addClass('bad');
+        var badId = {{ stat }}_array[1].id;
+        $('p#' + badId + "-{{ stat }}").addClass('good');
+      }
+      else {
+        var goodId = {{ stat }}_array[1].id;
+        $('p#' + goodId + "-{{ stat }}").addClass('bad');
+        var badId = {{ stat }}_array[0].id;
+        $('p#' + badId + "-{{ stat }}").addClass('good');
+      }
+    {% endfor %}
+  });
+</script>
+
 <body>
 
   <h1 class="heading">
@@ -15,9 +44,22 @@
 
   <table width="100%">
     <tr>
+      <td class="match-top-wrapper">
+        <h2 class="heading">{{ home.name|title }}</h2>
+      </td>
+      <td class="match-top-wrapper">
+        <h2 class="heading">{{ away.name|title }}</h2>
+      </td>
+    <tr>
+      <td class="match-centre-wrapper">
+        <div class="desc"><i>{{ home.description }}</i></div>
+      </td>
+      <td class="match-centre-wrapper">
+        <div class="desc"><i>{{ away.description }}</i></div>
+      </td>
+    </tr>
+    <tr>
         <td class="match-centre-wrapper">
-          <h2 class="heading">{{ home.name|title }}</h2>
-          <div class="desc"><i>{{ home.description }}</i></div>
           <img src="{{ home.photo_url }}" height="200px">
           <p>Serving Size: {% add_units home.serving_size "serving_size" %}</p>
           <p>Price per serving: {% add_units home.price_per_serving "price_per_serving" %}</p>
@@ -27,16 +69,14 @@
           {% endfor %}
           <!-- Print attributes -->
           {% for stat, value in home_dict.items %}
-            <p>{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</p>
+            <input id="home" name="{{ stat }}" value="{{ value }}" type="hidden">
+            <p id="home-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</p>
           {% endfor %}
           <br>
           <!-- Winner button -->
           <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{home}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
         </td>
-
         <td class="match-centre-wrapper">
-          <h2 class="heading">{{ away.name|title }}</h2>
-          <div class="desc"><i>{{ away.description }}</i></div>
           <img src="{{ away.photo_url }}" height="200px">
           <p>Serving Size: {% add_units away.serving_size "serving_size" %}</p>
           <p>Price per serving: {% add_units away.price_per_serving "price_per_serving" %}</p>
@@ -46,7 +86,8 @@
           {% endfor %}
           <!-- Print attributes -->
           {% for stat, value in away_dict.items %}
-            <p>{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</p>
+            <input id="away" name="{{ stat }}" value="{{ value }}" type="hidden">
+            <p id="away-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</p>
           {% endfor %}
           <br>
           <!-- Winner button -->
