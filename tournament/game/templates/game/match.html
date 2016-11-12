@@ -3,54 +3,55 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="{% static 'game/css/style.css' %}" />
-  <link href="https://fonts.googleapis.com/css?family=Glegoo" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Faster+One|Slabo+13px" rel="stylesheet">
   <title>Match</title>
 </head>
 
 <body>
 
-  <h1>Match {{ current_match }}</h1>
+  <h1 class="heading">
+    <span class="match-background">Match #{{ current_match }}<span>
+  </h1>
 
   <table width="100%">
     <tr>
-      <td width="50%">
-        <h3>{{ home.name|title }}</h3>
-        <p>{{ home.desciption }}</p>
-        <img src="{{ home.photo_url }}" height="200px">
-        <p>Serving Size: {% add_units home.serving_size "serving_size" %}</p>
-        <p>Price per serving: {% add_units home.price_per_serving "price_per_serving" %}</p>
-        <!-- Print filters -->
-        {% for filter in filters %}
-          <p>{{ filter|capfirst }}</p>
-        {% endfor %}
-        <!-- Print attributes -->
-        {% for stat, value in home_dict.items %}
-          <p>{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</p>
-        {% endfor %}
-        <br>
-        <!-- Winner button -->
-        <a href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{home}}{{stats_url_string}}{{filters_url_string}}">Winner</a>
+        <td class="match-centre-wrapper">
+          <h2 class="heading">{{ home.name|title }}</h2>
+          <div class="desc"><i>{{ home.description }}</i></div>
+          <img src="{{ home.photo_url }}" height="200px">
+          <p>Serving Size: {% add_units home.serving_size "serving_size" %}</p>
+          <p>Price per serving: {% add_units home.price_per_serving "price_per_serving" %}</p>
+          <!-- Print filters -->
+          {% for filter in filters %}
+            <p>{{ filter|capfirst }}</p>
+          {% endfor %}
+          <!-- Print attributes -->
+          {% for stat, value in home_dict.items %}
+            <p>{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</p>
+          {% endfor %}
+          <br>
+          <!-- Winner button -->
+          <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{home}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
+        </td>
 
-      </td>
-      <td width="50%">
-        <h3>{{ away.name|title }}</h3>
-        <p>{{ away.desciption }}</p>
-        <img src="{{ away.photo_url }}" height="200px">
-        <p>Serving Size: {% add_units away.serving_size "serving_size" %}</p>
-        <p>Price per serving: {% add_units away.price_per_serving "price_per_serving" %}</p>
-        <!-- Print filters -->
-        {% for filter in filters %}
-          <p>{{ filter|capfirst }}</p>
-        {% endfor %}
-        <!-- Print attributes -->
-        {% for stat, value in away_dict.items %}
-          <p>{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</p>
-        {% endfor %}
-        <br>
-        <!-- Winner button -->
-        <a href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{away}}{{stats_url_string}}{{filters_url_string}}">Winner</a>
-      </td>
+        <td class="match-centre-wrapper">
+          <h2 class="heading">{{ away.name|title }}</h2>
+          <div class="desc"><i>{{ away.description }}</i></div>
+          <img src="{{ away.photo_url }}" height="200px">
+          <p>Serving Size: {% add_units away.serving_size "serving_size" %}</p>
+          <p>Price per serving: {% add_units away.price_per_serving "price_per_serving" %}</p>
+          <!-- Print filters -->
+          {% for filter in filters %}
+            <p>{{ filter|capfirst }}</p>
+          {% endfor %}
+          <!-- Print attributes -->
+          {% for stat, value in away_dict.items %}
+            <p>{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</p>
+          {% endfor %}
+          <br>
+          <!-- Winner button -->
+          <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{away}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
+        </td>
     </tr>
   </table>
-
 </body>

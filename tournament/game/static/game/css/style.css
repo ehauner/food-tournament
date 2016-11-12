@@ -1,16 +1,27 @@
 html {
-  font-family: 'Glegoo', serif;
+  font-family: 'Slabo 13px', serif;
   font-size: 15px;
 }
 
 .heading {
   text-align: center;
   padding-top: 20px;
+  text-transform: uppercase;
 }
 
 .background {
   padding: 5px 15px;
-  background-color: rgba(153, 204, 255, 1);
+  background-color: #ffd1b3;
+  border: 0 none;
+  margin-left: 0;
+  margin-right: 0;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.match-background {
+  padding: 5px 15px;
+  background-color: #adebad;
   border: 0 none;
   margin-left: 0;
   margin-right: 0;
@@ -26,34 +37,79 @@ html {
   width: 700px;
   height: 100%;
   position: absolute;
-  top:200px;
+  top:170px;
   bottom: 0;
   left: 100px;
   right: 0;
   margin: auto;
 }
 
-.centre {
-  width: 400px;
+.registration-centre {
+  width: 500px;
   height: 100%;
   position: absolute;
-  top:100px;
+  top:170px;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
 }
 
-/*.centre {
+.rules-centre {
   width: 400px;
-  height: 400px;
+  height: 100%;
   position: absolute;
-  top:0;
+  top:170px;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
-}*/
+}
+
+.match-centre-wrapper {
+  width: 30%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  margin: auto;
+}
+
+.go-button {
+  font-family: 'Faster One', cursive;
+  font-size: 25px;
+  padding: 5px 20px;
+  background-color: #adebad;
+  border: 0 none;
+  cursor: pointer;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.winner-button {
+  font-size: 25px;
+  padding: 5px 20px;
+  background-color: #f5ccff;
+  border: 0 none;
+  cursor: pointer;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.desc {
+  position: relative;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 25px;
+}
+
+a:link, a:visited, a:active {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  background-color: #adebad;
+}
 
 hr {
   display: block;

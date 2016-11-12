@@ -2,16 +2,22 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="{% static 'game/css/style.css' %}" />
-  <link href="https://fonts.googleapis.com/css?family=Glegoo" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Faster+One|Slabo+13px" rel="stylesheet">
   <title>Team Registration</title>
 </head>
 
-<div class="centre">
+
   <h1 class="heading">
-    Pick Your Starting Item
+    <span class="background">Pick Your Starting Item</span>
   </h1>
 
-  {% for item in items %}
-    <a href="{% url 'rules' %}?first={{item.name}}">{{ item.name|title }}</a><br>
-  {% endfor %}
+<div class="registration-centre">
+  <div style="text-align: center;">
+    {% for item in items %}
+      <a href="{% url 'rules' %}?first={{item.name}}">
+        {{ item.name|title }}
+      </a>
+      <br>
+    {% endfor %}
+</div>
 </div>
