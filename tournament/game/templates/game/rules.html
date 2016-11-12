@@ -3,6 +3,12 @@
   <title>Set Game Rules</title>
 </head>
 
+<style>
+  input:disabled+label {
+      color: #999999;
+  }
+</style>
+
 <script>
   // Limit to 5 maximum stats selections
   $(function(){
@@ -39,12 +45,12 @@
     <input id="protein" type="checkbox" name="stats" value="protein"><label for="protein">Protein</label><br>
     <input id="calcium" type="checkbox" name="stats" value="calcium"><label for="calcium">Calcium</label><br>
     <p>Must be</p>
-    <input id="gluten_free" type="checkbox" name="filters" value="gluten_free"><label for="gluten_free">Gluten-free</label><br>
-    <input id="vegetarian" type="checkbox" name="filters" value="vegetarian"><label for="vegetarian">Vegetarian</label><br>
-    <input id="vegan" type="checkbox" name="filters" value="vegan"><label for="vegan">Vegan</label><br>
-    <input id="organic" type="checkbox" name="filters" value="organic"><label for="organic">Organic</label><br>
-    <input id="nut_free" type="checkbox" name="filters" value="nut_free"><label for="nut_free">Nut-free</label><br>
-    <input id="lactose_free" type="checkbox" name="filters" value="lactose_free"><label for="lactose_free">Lactose-free</label><br>
+    <input id="gluten_free" type="checkbox" name="filters" value="gluten_free" {% if first.gluten_free != True %}disabled{% endif %}><label for="gluten_free">Gluten-free</label><br>
+    <input id="vegetarian" type="checkbox" name="filters" value="vegetarian" {% if first.vegetarian != True %}disabled{% endif %}><label for="vegetarian">Vegetarian</label><br>
+    <input id="vegan" type="checkbox" name="filters" value="vegan" {% if first.vegan != True %}disabled{% endif %}><label for="vegan">Vegan</label><br>
+    <input id="organic" type="checkbox" name="filters" value="organic" {% if first.organic != True %}disabled{% endif %}><label for="organic">Organic</label><br>
+    <input id="nut_free" type="checkbox" name="filters" value="nut_free" {% if first.nut_free != True %}disabled{% endif %}><label for="nut_free">Nut-free</label><br>
+    <input id="lactose_free" type="checkbox" name="filters" value="lactose_free" {% if first.lactose_free != True %}disabled{% endif %}><label for="lactose_free">Lactose-free</label><br>
     <br>Best of
     <select name="num_matches">
       <option value="1">1</option>

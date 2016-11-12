@@ -76,7 +76,7 @@ def upload(request):
 def rules(request):
     context = {}
     if request.method == 'GET':
-        context["first"] = request.GET.get('first')
+        context["first"] = Item.objects.get(name=request.GET.get('first'))
     context['items'] = Item.objects.all()
     return render(request, 'game/rules.html', context)
 
