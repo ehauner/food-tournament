@@ -98,6 +98,17 @@ html {
   margin: auto;
 }
 
+.champion-centre {
+  width: 400px;
+  height: 100%;
+  position: absolute;
+  top:130px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
 .match-centre-wrapper {
   width: 30%;
   height: 100%;
