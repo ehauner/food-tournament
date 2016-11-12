@@ -13,7 +13,7 @@ def add_units(value, stat):
     elif stat == "serving_size":
         value = value + "g"
     elif stat == "calories":
-        value = value
+        value = str(int(round(float(value), 0)))
     elif stat == "fat":
         value = value + "g"
     elif stat == "cholesterol":
