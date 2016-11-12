@@ -32,11 +32,12 @@
 
   <div class="rules-centre">
 
-    First competitor: <b>{{ first|title }}</b>
-
+    <div style="padding-top: 10px;">
+      First competitor: <b style="text-transform: uppercase;">{{ first|title }}</b>
+    </div>
     <form action="{% url 'match' %}" method="GET">
       {% csrf_token %}
-      <p>Pick up to five comparison stats</p>
+      <p>Pick up to five comparison stats:</p>
       <input type="text" name="home" value="{{ first }}" style="display:none;">
       <input type="text" name="winner" value="{{ first }}" style="display:none;">
       <input type="text" name="first_match" value="true" style="display:none;">
@@ -50,7 +51,7 @@
       <input id="sodium" type="checkbox" name="stats" value="sodium"><label for="sodium">Sodium</label><br>
       <input id="protein" type="checkbox" name="stats" value="protein"><label for="protein">Protein</label><br>
       <input id="calcium" type="checkbox" name="stats" value="calcium"><label for="calcium">Calcium</label><br>
-      <p>Must be</p>
+      <p>Competitors must be:</p>
       <input id="gluten_free" type="checkbox" name="filters" value="gluten_free" {% if first.gluten_free != True %}disabled{% endif %}><label for="gluten_free">Gluten-free</label><br>
       <input id="vegetarian" type="checkbox" name="filters" value="vegetarian" {% if first.vegetarian != True %}disabled{% endif %}><label for="vegetarian">Vegetarian</label><br>
       <input id="vegan" type="checkbox" name="filters" value="vegan" {% if first.vegan != True %}disabled{% endif %}><label for="vegan">Vegan</label><br>
