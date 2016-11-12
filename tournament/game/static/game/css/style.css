@@ -54,6 +54,17 @@ html {
   background-color: #cce6ff;
 }
 
+.match-centre {
+  width: 800px;
+  height: 100%;
+  position: absolute;
+  top:0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
 .upload-centre {
   width: 700px;
   height: 100%;
