@@ -27,7 +27,7 @@
         {% endfor %}
         <br>
         <!-- Winner button -->
-        <a href="{% url 'match' %}?home={{home}}&away={{away}}&winner={{home}}{{stats_url_string}}{{filters_url_string}}">Winner</a>
+        <a href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{home}}{{stats_url_string}}{{filters_url_string}}">Winner</a>
 
       </td>
       <td width="50%">
@@ -46,7 +46,7 @@
         {% endfor %}
         <br>
         <!-- Winner button -->
-        <a href="{% url 'match' %}?home={{home}}&away={{away}}&winner={{away}}{{stats_url_string}}{{filters_url_string}}">Winner</a>
+        <a href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{away}}{{stats_url_string}}{{filters_url_string}}">Winner</a>
       </td>
     </tr>
   </table>

@@ -90,18 +90,17 @@ def match(request):
         filters = request.GET.getlist('filters')
         first_match = request.GET.get('first_match')
         num_matches = request.GET.get('num_matches')
+        current_match = request.GET.get('current_match')
 
     if first_match is not None: # must set up if this is the first match
         reset_seen() # reset the seen items
         clear_tournament() # remove old tournament
         t = Tournament(num_matches=int(num_matches)) # make new Tournament
-        current_match = 1
         num_matches = t.num_matches
+        current_match = 1
         t.save()
     else: # else increment tournament current_match
         t = Tournament.objects.all()[0]
-        t.current_match += 1
-        current_match = t.current_match
         num_matches = t.num_matches
         t.save()
 
@@ -126,7 +125,7 @@ def match(request):
         away = get_random_unseen_item(filters)
 
     # if we have done enough matches
-    if current_match > num_matches:
+    if int(current_match) > num_matches:
         champion = home if away is None else away
         context = {"champion": champion, "message": "Finished " + str(num_matches) + " matches"}
         return render(request, 'game/champion.html', context)
@@ -153,7 +152,7 @@ def match(request):
     for this_filter in filters:
         filters_url_string += '&filters=' + this_filter
 
-    context = {'current_match': current_match, 'home':home, 'home_dict': home_dict, 'away': away, 'away_dict': away_dict, 'filters': filters, 'stats': stats, 'stats_url_string': stats_url_string, 'filters_url_string': filters_url_string}
+    context = {'current_match': current_match, 'next_match': int(current_match) + 1, 'home':home, 'home_dict': home_dict, 'away': away, 'away_dict': away_dict, 'filters': filters, 'stats': stats, 'stats_url_string': stats_url_string, 'filters_url_string': filters_url_string}
     return render(request, 'game/match.html', context)
 
 def champion(request):
