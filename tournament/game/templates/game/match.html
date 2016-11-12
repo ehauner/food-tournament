@@ -9,28 +9,36 @@
 
 <style>
   .good {
-    background-color: green;
+    border-bottom: 3px solid green;
   }
   .bad {
-    background-color: red;
+    border-bottom: 3px solid red;
   }
 </style>
 
 <script>
+  // Array stores which stats are better high
+  var higherBetter = ['protein', 'vitA', 'vitC', 'calcium', 'iron', 'fiber'];
+
+  // Highlight stats
   $(function() {
     {% for stat, num in home_dict.items %}
       var {{ stat }}_array = $('input[name={{ stat }}]');
       if (parseFloat({{ stat }}_array[0].value) > parseFloat({{ stat }}_array[1].value)) {
-        var goodId = {{ stat }}_array[0].id;
-        $('p#' + goodId + "-{{ stat }}").addClass('bad');
-        var badId = {{ stat }}_array[1].id;
-        $('p#' + badId + "-{{ stat }}").addClass('good');
+        var high = {{ stat }}_array[0].id;
+        var low = {{ stat }}_array[1].id;
       }
       else {
-        var goodId = {{ stat }}_array[1].id;
-        $('p#' + goodId + "-{{ stat }}").addClass('bad');
-        var badId = {{ stat }}_array[0].id;
-        $('p#' + badId + "-{{ stat }}").addClass('good');
+        var high = {{ stat }}_array[1].id;
+        var low = {{ stat }}_array[0].id;
+      }
+      if ($.inArray('{{ stat }}', higherBetter) > -1) {
+        $('span#' + high + "-{{ stat }}").addClass('good');
+        $('span#' + low + "-{{ stat }}").addClass('bad');
+      }
+      else {
+        $('span#' + high + "-{{ stat }}").addClass('bad');
+        $('span#' + low + "-{{ stat }}").addClass('good');
       }
     {% endfor %}
   });
@@ -70,7 +78,7 @@
           <!-- Print attributes -->
           {% for stat, value in home_dict.items %}
             <input id="home" name="{{ stat }}" value="{{ value }}" type="hidden">
-            <p id="home-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</p>
+            <p><span id="home-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></p>
           {% endfor %}
           <br>
           <!-- Winner button -->
@@ -87,7 +95,7 @@
           <!-- Print attributes -->
           {% for stat, value in away_dict.items %}
             <input id="away" name="{{ stat }}" value="{{ value }}" type="hidden">
-            <p id="away-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</p>
+            <p><span id="away-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></p>
           {% endfor %}
           <br>
           <!-- Winner button -->
