@@ -136,6 +136,13 @@ html {
   -webkit-border-radius: 8px;
   border-radius: 8px;
   color: #1b6d1e;
+  transition: 0.3s ease-in-out;
+}
+
+.go-button:hover {
+  padding-left: 26px;
+  padding-right: 10px;
+  letter-spacing: 1px
 }
 
 input.play[type="submit"]:hover {
