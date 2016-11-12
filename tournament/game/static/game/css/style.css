@@ -82,7 +82,7 @@ html {
   position: absolute;
   top: 220px;
   bottom: 0;
-  left: 50px;
+  left: 70px;
   right: 0;
   margin: auto;
 }
@@ -185,7 +185,7 @@ input.play[type="submit"]:hover {
 
 .bottom {
   height: 300px;
-  width: 80%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: none;
