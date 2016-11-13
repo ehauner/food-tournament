@@ -9,10 +9,14 @@
 
 <style>
   .good {
-    border-bottom: 3px solid green;
+    background-color: #00cc00;
+    padding: 2 5 0 5;
+    color: white;
   }
   .bad {
-    border-bottom: 3px solid red;
+    background-color: #ff0000;
+    padding: 2 5 0 5;
+    color: white;
   }
 </style>
 
@@ -79,37 +83,41 @@
     <tr>
       <td class="match-centre-wrapper">
         <img src="{{ left.photo_url }}" height="200px">
-        <p>Serving Size: {% add_units left.serving_size "serving_size" %}</p>
-        <p>Price per serving: {% add_units left.price_per_serving "price_per_serving" %}</p>
+        <div class="serving-size"><i>Serving Size: {% add_units left.serving_size "serving_size" %}</i></div>
+        <div class="attribute"><i>Price per serving: {% add_units left.price_per_serving "price_per_serving" %}</i></div>
         <!-- Print filters -->
         {% for filter in filters %}
-          <p>{{ filter|capfirst }}</p>
+          <div class="attribute"><i>{{ filter|capfirst }}</i></div>
         {% endfor %}
         <!-- Print attributes -->
         {% for stat, value in left_dict.items %}
           <input id="left" name="{{ stat }}" value="{{ value }}" type="hidden">
-          <p><span id="left-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></p>
+          <div class="attribute"><span id="left-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></div>
         {% endfor %}
         <br>
         <!-- Winner button -->
-        <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&amp;left={{left}}&amp;right={{right}}&amp;winner={{left}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
+        <p>
+          <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&amp;left={{left}}&amp;right={{right}}&amp;winner={{left}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
+        </p>
       </td>
       <td class="match-centre-wrapper">
         <img src="{{ right.photo_url }}" height="200px">
-        <p>Serving Size: {% add_units right.serving_size "serving_size" %}</p>
-        <p>Price per serving: {% add_units right.price_per_serving "price_per_serving" %}</p>
+        <div class="serving-size"><i>Serving Size: {% add_units right.serving_size "serving_size" %}</i></div>
+        <div class="attribute"><i>Price per serving: {% add_units right.price_per_serving "price_per_serving" %}</i></div>
         <!-- Print filters -->
         {% for filter in filters %}
-          <p>{{ filter|capfirst }}</p>
+          <div class="attribute"><i>{{ filter|capfirst }}</i></div>
         {% endfor %}
         <!-- Print attributes -->
         {% for stat, value in right_dict.items %}
           <input id="right" name="{{ stat }}" value="{{ value }}" type="hidden">
-          <p><span id="right-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></p>
+          <div class="attribute"><span id="right-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></div>
         {% endfor %}
         <br>
         <!-- Winner button -->
-        <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&amp;left={{left}}&amp;right={{right}}&amp;winner={{right}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
+        <p>
+          <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&amp;left={{left}}&amp;right={{right}}&amp;winner={{right}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
+        </p>
       </td>
     </tr>
   </table>

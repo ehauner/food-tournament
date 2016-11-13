@@ -151,13 +151,12 @@ input.play[type="submit"]:hover {
 
 .winner-button {
   font-size: 25px;
-  padding: 5px 20px;
-  background-color: #ffff00;
+  padding: 3px 15px;
   color: #0066ff;
-  border: 0 none;
+  border: 7px solid #ffff00;
   cursor: pointer;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 
 .desc {
@@ -216,6 +215,14 @@ input.play[type="submit"]:hover {
   padding-bottom: 30px;
 }
 
+.serving-size {
+  padding-top: 15px;
+}
+
+.attribute {
+  padding-top: 6px;
+}
+
 a:link, a:visited, a:active {
   text-decoration: none;
   color: black;
@@ -223,4 +230,8 @@ a:link, a:visited, a:active {
 
 a:hover {
   background-color: #00cc00;
+}
+
+a.winner-button:hover {
+  background-color: #ffff00;
 }
