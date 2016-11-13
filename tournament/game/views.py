@@ -83,8 +83,8 @@ def rules(request):
 def match(request):
     # Get arguments from url
     if request.method == 'GET':
-        home = request.GET.get('home')
-        away = request.GET.get('away')
+        left = request.GET.get('left')
+        right = request.GET.get('right')
         winner = request.GET.get('winner')
         stats = request.GET.getlist('stats')
         filters = request.GET.getlist('filters')
@@ -104,45 +104,44 @@ def match(request):
         num_matches = t.num_matches
         t.save()
 
-    # Record if home won
-    home_won = winner == home
+    # Record if left won
+    left_won = winner == left
 
     # Remember these have been seen
-    if home is not None:
-        home = Item.objects.get(name=home)
-        home.seen = True
-        home.save()
-    if away is not None:
-        away = Item.objects.get(name=away)
-        away.seen = True
-        away.save()
+    if left is not None:
+        left = Item.objects.get(name=left)
+        left.seen = True
+        left.save()
+    if right is not None:
+        right = Item.objects.get(name=right)
+        right.seen = True
+        right.save()
 
     # if we have done enough matches
     if int(current_match) > num_matches:
-        champion = home if home_won else away
+        champion = left if left_won else right
         context = {"champion": champion, "message": "Finished " + str(num_matches) + " matches"}
         return render(request, 'game/champion.html', context)
 
     # Replace loser
-    if home_won:
-        away = get_random_unseen_item(filters)
+    if left_won:
+        right = get_random_unseen_item(filters)
     else:
-        home = away
-        away = get_random_unseen_item(filters)
+        left = get_random_unseen_item(filters)
 
-    # if either away or home are none, we have run out of items and we have a champion
-    if home is None or away is None:
-        champion = home if away is None else away
+    # if either right or left are none, we have run out of items and we have a champion
+    if left is None or right is None:
+        champion = left if right is None else right
         context = {"champion": champion, "message": "Ran out of items"}
         return render(request, 'game/champion.html', context)
 
     # Make dictionaries to hold the items attributes of interest
-    home_dict = {}
+    left_dict = {}
     for stat in stats:
-        home_dict[stat] = eval('home.' + stat)
-    away_dict = {}
+        left_dict[stat] = eval('left.' + stat)
+    right_dict = {}
     for stat in stats:
-        away_dict[stat] = eval('away.' + stat)
+        right_dict[stat] = eval('right.' + stat)
 
     # Prepare string for stats and filters
     stats_url_string = ""
@@ -152,7 +151,7 @@ def match(request):
     for this_filter in filters:
         filters_url_string += '&filters=' + this_filter
 
-    context = {'current_match': current_match, 'next_match': int(current_match) + 1, 'home':home, 'home_dict': home_dict, 'away': away, 'away_dict': away_dict, 'filters': filters, 'stats': stats, 'stats_url_string': stats_url_string, 'filters_url_string': filters_url_string}
+    context = {'current_match': current_match, 'next_match': int(current_match) + 1, 'left_won': left_won, 'left':left, 'left_dict': left_dict, 'right': right, 'right_dict': right_dict, 'filters': filters, 'stats': stats, 'stats_url_string': stats_url_string, 'filters_url_string': filters_url_string}
     return render(request, 'game/match.html', context)
 
 def champion(request):

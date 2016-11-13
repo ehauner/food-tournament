@@ -22,7 +22,7 @@
 
   // Highlight stats
   $(function() {
-    {% for stat, num in home_dict.items %}
+    {% for stat, num in left_dict.items %}
       var {{ stat }}_array = $('input[name={{ stat }}]');
       if (parseFloat({{ stat }}_array[0].value) > parseFloat({{ stat }}_array[1].value)) {
         var high = {{ stat }}_array[0].id;
@@ -53,55 +53,63 @@
   <table width="100%">
     <tr>
       <td class="match-top-wrapper">
-        <div class="home-heading">home</div>
-        <div class="product-heading">{{ home.name|title }}</div>
+        {% if left_won %}
+          <div class="home-heading">home</div>
+        {% else %}
+          <div class="away-heading">away</div>
+        {% endif %}
+        <div class="product-heading">{{ left.name|title }}</div>
       </td>
       <td class="match-top-wrapper">
-        <div class="away-heading">away</div>
-        <div class="product-heading">{{ away.name|title }}</div>
+        {% if left_won %}
+          <div class="away-heading">away</div>
+        {% else %}
+          <div class="home-heading">home</div>
+        {% endif %}
+        <div class="product-heading">{{ right.name|title }}</div>
       </td>
     <tr>
       <td class="match-centre-wrapper">
-        <div class="desc"><i>{{ home.description }}</i></div>
+        <div class="desc"><i>{{ left.description }}</i></div>
       </td>
       <td class="match-centre-wrapper">
-        <div class="desc"><i>{{ away.description }}</i></div>
+        <div class="desc"><i>{{ right.description }}</i></div>
       </td>
     </tr>
     <tr>
       <td class="match-centre-wrapper">
-        <img src="{{ home.photo_url }}" height="200px">
-        <p>Serving Size: {% add_units home.serving_size "serving_size" %}</p>
-        <p>Price per serving: {% add_units home.price_per_serving "price_per_serving" %}</p>
+        <img src="{{ left.photo_url }}" height="200px">
+        <p>Serving Size: {% add_units left.serving_size "serving_size" %}</p>
+        <p>Price per serving: {% add_units left.price_per_serving "price_per_serving" %}</p>
         <!-- Print filters -->
         {% for filter in filters %}
           <p>{{ filter|capfirst }}</p>
         {% endfor %}
         <!-- Print attributes -->
-        {% for stat, value in home_dict.items %}
-          <input id="home" name="{{ stat }}" value="{{ value }}" type="hidden">
-          <p><span id="home-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></p>
+        {% for stat, value in left_dict.items %}
+          <input id="left" name="{{ stat }}" value="{{ value }}" type="hidden">
+          <p><span id="left-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></p>
         {% endfor %}
         <br>
         <!-- Winner button -->
-        <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{home}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
+        <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&amp;left={{left}}&amp;right={{right}}&amp;winner={{left}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
       </td>
       <td class="match-centre-wrapper">
-        <img src="{{ away.photo_url }}" height="200px">
-        <p>Serving Size: {% add_units away.serving_size "serving_size" %}</p>
-        <p>Price per serving: {% add_units away.price_per_serving "price_per_serving" %}</p>
+        <img src="{{ right.photo_url }}" height="200px">
+        <p>Serving Size: {% add_units right.serving_size "serving_size" %}</p>
+        <p>Price per serving: {% add_units right.price_per_serving "price_per_serving" %}</p>
         <!-- Print filters -->
         {% for filter in filters %}
           <p>{{ filter|capfirst }}</p>
         {% endfor %}
         <!-- Print attributes -->
-        {% for stat, value in away_dict.items %}
-          <input id="away" name="{{ stat }}" value="{{ value }}" type="hidden">
-          <p><span id="away-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></p>
+        {% for stat, value in right_dict.items %}
+          <input id="right" name="{{ stat }}" value="{{ value }}" type="hidden">
+          <p><span id="right-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></p>
         {% endfor %}
         <br>
         <!-- Winner button -->
-        <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&home={{home}}&away={{away}}&winner={{away}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
+        <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&amp;left={{left}}&amp;right={{right}}&amp;winner={{right}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
       </td>
     </tr>
   </table>

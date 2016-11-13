@@ -38,7 +38,7 @@
     <form action="{% url 'match' %}" method="GET">
       {% csrf_token %}
       <p><i>Pick up to five comparison stats:</i></p>
-      <input type="text" name="home" value="{{ first }}" style="display:none;">
+      <input type="text" name="left" value="{{ first }}" style="display:none;">
       <input type="text" name="winner" value="{{ first }}" style="display:none;">
       <input type="text" name="first_match" value="true" style="display:none;">
       <input id="sugar" type="checkbox" name="stats" value="sugar"><label for="sugar">&nbsp;Sugar</label><br>
