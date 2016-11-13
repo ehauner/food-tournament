@@ -27,25 +27,30 @@
   // Highlight stats
   $(function() {
     {% for stat, num in left_dict.items %}
-      var {{ stat }}_array = $('input[name={{ stat }}]');
-      if (parseFloat({{ stat }}_array[0].value) > parseFloat({{ stat }}_array[1].value)) {
-        var high = {{ stat }}_array[0].id;
-        var low = {{ stat }}_array[1].id;
-      }
-      else {
-        var high = {{ stat }}_array[1].id;
-        var low = {{ stat }}_array[0].id;
-      }
-      if ($.inArray('{{ stat }}', higherBetter) > -1) {
-        $('span#' + high + "-{{ stat }}").addClass('good');
-        $('span#' + low + "-{{ stat }}").addClass('bad');
-      }
-      else {
-        $('span#' + high + "-{{ stat }}").addClass('bad');
-        $('span#' + low + "-{{ stat }}").addClass('good');
-      }
+      highlight('{{ stat }}');
     {% endfor %}
+    highlight('price_per_serving');
   });
+
+  function highlight(stat) {
+    var stat_array = $('input[name=' + stat + ']');
+    if (parseFloat(stat_array[0].value) > parseFloat(stat_array[1].value)) {
+      var high = stat_array[0].id;
+      var low = stat_array[1].id;
+    }
+    else {
+      var high = stat_array[1].id;
+      var low = stat_array[0].id;
+    }
+    if ($.inArray(stat, higherBetter) > -1) {
+      $('span#' + high + "-" + stat).addClass('good');
+      $('span#' + low + "-" + stat).addClass('bad');
+    }
+    else {
+      $('span#' + high + "-" + stat).addClass('bad');
+      $('span#' + low + "-" + stat).addClass('good');
+    }
+  }
 </script>
 
 <body class="match-centre">
@@ -84,7 +89,8 @@
       <td class="match-centre-wrapper">
         <img src="{{ left.photo_url }}" height="200px">
         <div class="serving-size"><i>Serving Size: {% add_units left.serving_size "serving_size" %}</i></div>
-        <div class="attribute"><i>Price per serving: {% add_units left.price_per_serving "price_per_serving" %}</i></div>
+        <input id="left" name="price_per_serving" value="{{ left.price_per_serving }}" type="hidden">
+        <div class="attribute"><span id="left-price_per_serving"><i>Price per serving: {% add_units left.price_per_serving "price_per_serving" %}</i><span></div>
         <!-- Print filters -->
         {% for filter in filters %}
           <div class="attribute"><i>{{ filter|capfirst }}</i></div>
@@ -103,7 +109,8 @@
       <td class="match-centre-wrapper">
         <img src="{{ right.photo_url }}" height="200px">
         <div class="serving-size"><i>Serving Size: {% add_units right.serving_size "serving_size" %}</i></div>
-        <div class="attribute"><i>Price per serving: {% add_units right.price_per_serving "price_per_serving" %}</i></div>
+        <input id="right" name="price_per_serving" value="{{ right.price_per_serving }}" type="hidden">
+        <div class="attribute"><span id="right-price_per_serving"><i>Price per serving: {% add_units right.price_per_serving "price_per_serving" %}</i><span></div>
         <!-- Print filters -->
         {% for filter in filters %}
           <div class="attribute"><i>{{ filter|capfirst }}</i></div>
