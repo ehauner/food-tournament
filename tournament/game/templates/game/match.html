@@ -30,6 +30,9 @@
       highlight('{{ stat }}');
     {% endfor %}
     highlight('price_per_serving');
+    setTimeout(function (){
+      $('.away').removeClass('invisible');
+    }, 100);
   });
 
   function highlight(stat) {
@@ -64,29 +67,43 @@
       <td class="match-top-wrapper">
         {% if left_won %}
           <div class="home-heading">home</div>
+          <div class="product-heading">{{ left.name|title }}</div>
         {% else %}
-          <div class="away-heading">away</div>
+          <div class="away-heading away invisible">away</div>
+          <div class="product-heading away invisible">{{ left.name|title }}</div>
         {% endif %}
-        <div class="product-heading">{{ left.name|title }}</div>
       </td>
       <td class="match-top-wrapper">
         {% if left_won %}
-          <div class="away-heading">away</div>
+          <div class="away-heading away invisible">away</div>
+          <div class="product-heading away invisible">{{ right.name|title }}</div>
         {% else %}
           <div class="home-heading">home</div>
+          <div class="product-heading">{{ right.name|title }}</div>
         {% endif %}
-        <div class="product-heading">{{ right.name|title }}</div>
       </td>
     <tr>
-      <td class="match-centre-wrapper">
+      {% if left_won %}
+        <td class="match-centre-wrapper">
+      {% else %}
+        <td class="match-centre-wrapper away invisible">
+      {% endif %}
         <div class="desc"><i>{{ left.description }}</i></div>
       </td>
-      <td class="match-centre-wrapper">
+      {% if left_won %}
+        <td class="match-centre-wrapper away invisible">
+      {% else %}
+        <td class="match-centre-wrapper">
+      {% endif %}
         <div class="desc"><i>{{ right.description }}</i></div>
       </td>
     </tr>
     <tr>
-      <td class="match-centre-wrapper">
+      {% if left_won %}
+        <td class="match-centre-wrapper">
+      {% else %}
+        <td class="match-centre-wrapper away invisible">
+      {% endif %}
         <img src="{{ left.photo_url }}" height="200px">
         <div class="serving-size"><i>Serving Size: {% add_units left.serving_size "serving_size" %}</i></div>
         <input id="left" name="price_per_serving" value="{{ left.price_per_serving }}" type="hidden">
@@ -106,7 +123,11 @@
           <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&amp;left={{left}}&amp;right={{right}}&amp;winner={{left}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
         </p>
       </td>
-      <td class="match-centre-wrapper">
+      {% if left_won %}
+        <td class="match-centre-wrapper away invisible">
+      {% else %}
+        <td class="match-centre-wrapper">
+      {% endif %}
         <img src="{{ right.photo_url }}" height="200px">
         <div class="serving-size"><i>Serving Size: {% add_units right.serving_size "serving_size" %}</i></div>
         <input id="right" name="price_per_serving" value="{{ right.price_per_serving }}" type="hidden">

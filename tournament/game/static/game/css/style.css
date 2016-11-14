@@ -149,6 +149,14 @@ input.play[type="submit"]:hover {
   color: #05ba0b;
 }
 
+.invisible {
+  opacity: 0;
+}
+
+.away {
+  transition: opacity 1s ease;
+}
+
 .winner-button {
   font-size: 25px;
   padding: 3px 15px;
