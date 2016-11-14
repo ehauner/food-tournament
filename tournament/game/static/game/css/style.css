@@ -221,6 +221,7 @@ input.play[type="submit"]:hover {
   float: left;
   width: 20%;
   padding-bottom: 30px;
+  min-height: 200px;
 }
 
 .serving-size {
