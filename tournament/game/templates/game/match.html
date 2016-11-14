@@ -22,7 +22,7 @@
 
 <script>
   // Array stores which stats are better high
-  var higherBetter = ['protein', 'vitA', 'vitC', 'calcium', 'iron', 'fiber'];
+  var higherBetter = ['protein', 'vitA', 'vitC', 'calcium', 'iron', 'fiber', 'winning_percentage'];
 
   // Highlight stats
   $(function() {
@@ -30,6 +30,7 @@
       highlight('{{ stat }}');
     {% endfor %}
     highlight('price_per_serving');
+    highlight('winning_percentage');
     setTimeout(function (){
       $('.away').removeClass('invisible');
     }, 100);
@@ -117,6 +118,9 @@
           <input id="left" name="{{ stat }}" value="{{ value }}" type="hidden">
           <div class="attribute"><span id="left-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></div>
         {% endfor %}
+        <!-- Print percent matches won -->
+        <input id="left" name="winning_percentage" value="{{ left_winning_percentage }}" type="hidden">
+        <div class="attribute"><span id="left-winning_percentage">{% add_units left_winning_percentage "left_winning_percentage" %} of matches won</span></div>
         <br>
         <!-- Winner button -->
         <p>
@@ -141,6 +145,9 @@
           <input id="right" name="{{ stat }}" value="{{ value }}" type="hidden">
           <div class="attribute"><span id="right-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></div>
         {% endfor %}
+        <!-- Print percent matches won -->
+        <input id="right" name="winning_percentage" value="{{ right_winning_percentage }}" type="hidden">
+        <div class="attribute"><span id="right-winning_percentage">{% add_units right_winning_percentage "right_winning_percentage" %} of matches won</span></div>
         <br>
         <!-- Winner button -->
         <p>

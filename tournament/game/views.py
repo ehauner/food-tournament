@@ -1,3 +1,4 @@
+from __future__ import division
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, render_to_response
 from django.template import RequestContext
@@ -151,7 +152,7 @@ def match(request):
     for this_filter in filters:
         filters_url_string += '&filters=' + this_filter
 
-    context = {'current_match': current_match, 'next_match': int(current_match) + 1, 'left_won': left_won, 'left':left, 'left_dict': left_dict, 'right': right, 'right_dict': right_dict, 'filters': filters, 'stats': stats, 'stats_url_string': stats_url_string, 'filters_url_string': filters_url_string}
+    context = {'left_winning_percentage': round(left.matches_won / left.matches_played, 2), 'right_winning_percentage': round(right.matches_won / right.matches_played, 2), 'current_match': current_match, 'next_match': int(current_match) + 1, 'left_won': left_won, 'left':left, 'left_dict': left_dict, 'right': right, 'right_dict': right_dict, 'filters': filters, 'stats': stats, 'stats_url_string': stats_url_string, 'filters_url_string': filters_url_string}
     return render(request, 'game/match.html', context)
 
 def champion(request):

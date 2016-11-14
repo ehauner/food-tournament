@@ -38,6 +38,10 @@ def add_units(value, stat):
         value = value + "g"
     elif stat == "serving_size":
         value = value + "g"
+    elif stat == "left_winning_percentage":
+        value = value + "%"
+    elif stat == "right_winning_percentage":
+        value = value + "%"
     return mark_safe(value)
 
 @register.filter(name='expand_vitamins')
