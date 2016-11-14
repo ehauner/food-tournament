@@ -154,12 +154,12 @@ def match(request):
 
     # Record percentages of matches won
     if left.matches_played > 0:
-        left_winning_percentage = round(left.matches_won / left.matches_played, 2)
+        left_winning_percentage = round(left.matches_won * 100 / left.matches_played, 1)
     else:
         left_winning_percentage = 0
 
     if right.matches_played > 0:
-        right_winning_percentage = round(right.matches_won / right.matches_played, 2)
+        right_winning_percentage = round(right.matches_won * 100 / right.matches_played, 1)
     else:
         right_winning_percentage = 0
 
