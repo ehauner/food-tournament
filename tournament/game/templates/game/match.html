@@ -108,11 +108,11 @@
         <img src="{{ left.photo_url }}" height="200px">
         <div class="serving-size"><i>Serving Size: {% add_units left.serving_size "serving_size" %}</i></div>
         <input id="left" name="price_per_serving" value="{{ left.price_per_serving }}" type="hidden">
-        <div class="attribute"><span id="left-price_per_serving"><i>Price per serving: {% add_units left.price_per_serving "price_per_serving" %}</i><span></div>
         <!-- Print filters -->
         {% for filter in filters %}
           <div class="attribute"><i>{{ filter|capfirst }}</i></div>
         {% endfor %}
+        <div class="attribute"><span id="left-price_per_serving"><i>Price per serving: {% add_units left.price_per_serving "price_per_serving" %}</i><span></div>
         <!-- Print attributes -->
         {% for stat, value in left_dict.items %}
           <input id="left" name="{{ stat }}" value="{{ value }}" type="hidden">
@@ -135,11 +135,11 @@
         <img src="{{ right.photo_url }}" height="200px">
         <div class="serving-size"><i>Serving Size: {% add_units right.serving_size "serving_size" %}</i></div>
         <input id="right" name="price_per_serving" value="{{ right.price_per_serving }}" type="hidden">
-        <div class="attribute"><span id="right-price_per_serving"><i>Price per serving: {% add_units right.price_per_serving "price_per_serving" %}</i><span></div>
         <!-- Print filters -->
         {% for filter in filters %}
           <div class="attribute"><i>{{ filter|capfirst }}</i></div>
         {% endfor %}
+        <div class="attribute"><span id="right-price_per_serving"><i>Price per serving: {% add_units right.price_per_serving "price_per_serving" %}</i><span></div>
         <!-- Print attributes -->
         {% for stat, value in right_dict.items %}
           <input id="right" name="{{ stat }}" value="{{ value }}" type="hidden">
