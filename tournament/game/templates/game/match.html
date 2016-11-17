@@ -38,9 +38,14 @@
 
   function highlight(stat) {
     var stat_array = $('input[name=' + stat + ']');
-    if (parseFloat(stat_array[0].value) > parseFloat(stat_array[1].value)) {
+    var left = parseFloat(stat_array[0].value);
+    var right = parseFloat(stat_array[1].value);
+    if (left > right) {
       var high = stat_array[0].id;
       var low = stat_array[1].id;
+    }
+    else if (left == right) {
+      return;
     }
     else {
       var high = stat_array[1].id;
