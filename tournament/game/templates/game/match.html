@@ -118,13 +118,13 @@
         <input id="left" name="price_per_serving" value="{{ left.price_per_serving }}" type="hidden">
         <!-- Print filters -->
         {% for filter in filters %}
-          <div class="attribute"><i>{{ filter|capfirst }}</i></div>
+          <div class="attribute"><i>{{ filter|process_attribute|capfirst }}</i></div>
         {% endfor %}
         <div class="attribute"><span id="left-price_per_serving"><i>Price per serving: {% add_units left.price_per_serving "price_per_serving" %}</i><span></div>
         <!-- Print attributes -->
         {% for stat, value in left_dict.items %}
           <input id="left" name="{{ stat }}" value="{{ value }}" type="hidden">
-          <div class="attribute"><span id="left-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></div>
+          <div class="attribute"><span id="left-{{ stat }}">{{ stat|process_attribute|capfirst }}: {% add_units value stat %}</span></div>
         {% endfor %}
         <!-- Print percent matches won -->
         <input id="left" name="winning_percentage" value="{{ left_winning_percentage }}" type="hidden">
@@ -148,13 +148,13 @@
         <input id="right" name="price_per_serving" value="{{ right.price_per_serving }}" type="hidden">
         <!-- Print filters -->
         {% for filter in filters %}
-        <div class="attribute"><i>{{ filter|capfirst }}</i></div>
+        <div class="attribute"><i>{{ filter|process_attribute|capfirst }}</i></div>
         {% endfor %}
         <div class="attribute"><span id="right-price_per_serving"><i>Price per serving: {% add_units right.price_per_serving "price_per_serving" %}</i><span></div>
         <!-- Print attributes -->
         {% for stat, value in right_dict.items %}
         <input id="right" name="{{ stat }}" value="{{ value }}" type="hidden">
-        <div class="attribute"><span id="right-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></div>
+        <div class="attribute"><span id="right-{{ stat }}">{{ stat|process_attribute|capfirst }}: {% add_units value stat %}</span></div>
         {% endfor %}
         <!-- Print percent matches won -->
         <input id="right" name="winning_percentage" value="{{ right_winning_percentage }}" type="hidden">

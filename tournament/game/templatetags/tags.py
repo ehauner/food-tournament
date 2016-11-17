@@ -44,8 +44,10 @@ def add_units(value, stat):
         value = value + "%"
     return mark_safe(value)
 
-@register.filter(name='expand_vitamins')
-def expand_vitamins(string):
+@register.filter(name='process_attribute')
+def process_attribute(string):
     if "vit" in string:
         string = string.replace("vit", "vitamin ")
+    if "_" in string:
+        string = string.replace("_", "-")
     return mark_safe(string)
