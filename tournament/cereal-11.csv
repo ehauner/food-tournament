@@ -1,0 +1,12 @@
+name,description,photo_url,group,matches_played,matches_won,price,amount,serving_size,calories,fat,cholesterol,sodium,carbohydrates,sugar,protein,vitA,vitC,calcium,iron,fiber,vegetarian,vegan,organic,gluten-free,nut-free,lactose-free,target_serving_size
+honey nut cheerios,sweetened whole grain oat cereal with real honey and natural almond flavor,http://www.cheerios.com/~/media/9D1796ED302D4B929789F810A1C427D1.ashx,cereal,50,17,3.99,330,28,110,1.5,0,160,22,9,2,10,10,10,25,2,1,0,0,0,0,1,30
+raisin bran,two scoops of raisins,https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508655/kicproductimage-110082_rbc.png,cereal,55,22,6.59,425,53,190,1,0,200,45,19,4,10,2,0,25,4,1,0,0,0,0,1,30
+cinnamon toast crunch,a breakfast made of breakfast,https://www.7-eleven.com/Content/Catalog/276_general_mills_cinnamon_toast_crunch.png,cereal,43,21,5.49,360,31,130,3,0,180,25,9,1,10,10,10,25,2,1,1,0,0,1,1,30
+rice krispies,toasted rice cereal,https://images.kglobalservices.com/www.ricekrispies.com/en_us/product/product_4508660/kicproductimage-127505_rk-c_original_3d.png,cereal,57,20,5.99,440,30,110,1.5,0,160,24,2,2,0,0,0,6,2,1,1,0,1,1,0,30
+froot loops,loop-shaped froots,https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508497/prod_img-3394699_fl_fp.jpeg,cereal,51,21,5.99,345,30,118,1,0,141,26,13,1,10,23,2,24,1,1,1,0,0,1,1,30
+lucky charms,they're after me lucky charms,https://theamericancandystore.co.uk/1036-thickbox_default/lucky-charms-extra-value-size.jpg,cereal,47,18,5.49,330,27,110,1,0,170,22,10,2,10,10,10,25,2,1,1,0,0,1,1,30
+chex cinnamon,"whether is breakfast lunch or dinner, you can count on chex",http://www.chexmixsnackon.com/~/media/Images/Chex/Products/Product%20Detail/Cinnamon_Anthem.ashx,cereal,50,20,5.49,345,30,120,2,0,180,25,8,1,15,10,10,45,6,1,1,0,1,1,1,30
+fibre 1,delightfully simple whoe-grain taste,http://i5.walmartimages.ca/images/Large/075/634/999999-65633075634.jpg,cereal,45,11,5.29,450,30,60,1,0,110,25,0,2,0,10,10,25,14,1,1,0,0,1,1,30
+oatmeal crisp maple nut,lightly sweetened flakes with crunchy clusters,https://images-na.ssl-images-amazon.com/images/I/51X9xTiFtiL.jpg,cereal,48,12,5.89,460,62,230,2.5,0,120,50,17,5,0,0,2,50,4,1,1,0,0,0,1,30
+kashi,naturally sweetened fibre twigs,http://althealthworks.com/wp-content/uploads/2015/08/go-leann.jpg,cereal,46,11,5.99,370,53,190,3,0,100,38,13,9,0,0,2,8,8,1,1,0,0,1,1,30
+corn pops,crispy glazed crunchy sweet,https://c1.q-assets.com/images/products/p/ZQB/ZQB-18097B_1z.jpg,cereal,40,15,7.49,515,68,240,7,0,490,44,7,7,2,2,2,10,4,1,1,0,0,1,1,30
