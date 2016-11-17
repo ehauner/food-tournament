@@ -130,23 +130,26 @@
           <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&amp;left={{left}}&amp;right={{right}}&amp;winner={{left}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
         </p>
       </td>
+      <div class="versus">
+        <img width="100px" src="{% static 'game/images/versus.png' %}"></img>
+      </div>
       {% if left_won %}
-        <td class="match-centre-wrapper away invisible">
+      <td class="match-centre-wrapper away invisible">
       {% else %}
-        <td class="match-centre-wrapper">
+      <td class="match-centre-wrapper">
       {% endif %}
         <img src="{{ right.photo_url }}" height="200px">
         <div class="serving-size"><i>Serving Size: {% add_units right.serving_size "serving_size" %}</i></div>
         <input id="right" name="price_per_serving" value="{{ right.price_per_serving }}" type="hidden">
         <!-- Print filters -->
         {% for filter in filters %}
-          <div class="attribute"><i>{{ filter|capfirst }}</i></div>
+        <div class="attribute"><i>{{ filter|capfirst }}</i></div>
         {% endfor %}
         <div class="attribute"><span id="right-price_per_serving"><i>Price per serving: {% add_units right.price_per_serving "price_per_serving" %}</i><span></div>
         <!-- Print attributes -->
         {% for stat, value in right_dict.items %}
-          <input id="right" name="{{ stat }}" value="{{ value }}" type="hidden">
-          <div class="attribute"><span id="right-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></div>
+        <input id="right" name="{{ stat }}" value="{{ value }}" type="hidden">
+        <div class="attribute"><span id="right-{{ stat }}">{{ stat|expand_vitamins|capfirst }}: {% add_units value stat %}</span></div>
         {% endfor %}
         <!-- Print percent matches won -->
         <input id="right" name="winning_percentage" value="{{ right_winning_percentage }}" type="hidden">
@@ -154,7 +157,7 @@
         <br>
         <!-- Winner button -->
         <p>
-          <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&amp;left={{left}}&amp;right={{right}}&amp;winner={{right}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
+        <a class="winner-button" href="{% url 'match' %}?current_match={{next_match}}&amp;left={{left}}&amp;right={{right}}&amp;winner={{right}}{{stats_url_string}}{{filters_url_string}}">WINNER</a>
         </p>
       </td>
     </tr>

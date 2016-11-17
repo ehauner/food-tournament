@@ -244,3 +244,10 @@ a:hover {
 a.winner-button:hover {
   background-color: #ffff00;
 }
+
+.versus {
+  z-index: 10000;
+  position: absolute;
+  top: 250px;
+  left: 350px;
+}
