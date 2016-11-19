@@ -210,14 +210,15 @@ input.play[type="submit"]:hover {
 
 .compare-button {
   font-family: Arial;
-  font-size: 15px;
-  width: 150px;
+  font-weight: bold;
+  font-size: 14px;
+  width: 160px;
   padding: 5px 5px 5px 5px;
   text-align: center;
-  background-color: rgba(153, 204, 255, 1);
+  background-color: #003cb3;
   cursor: pointer;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 .grid {
