@@ -227,7 +227,7 @@ input.play[type="submit"]:hover {
   position: absolute;
   top: 900px;
   bottom: 0;
-  left: 70px;
+  left: 100px;
   right: 0;
   margin: auto;
 }
