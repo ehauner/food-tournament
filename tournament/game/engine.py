@@ -18,6 +18,7 @@ def populate_database(path_to_dir):
                 matches_played = int(row["matches_played"]),
                 matches_won = int(row["matches_won"]),
                 price_per_serving = round(np.multiply(np.multiply(row["price"]/row["amount"],row["serving_size"]), target_to_this_ratio), 2),
+                price = row["price"],
                 serving_size = target_serving_size,
                 calories = round(np.multiply(row["calories"], target_to_this_ratio), 2),
                 fat = round(np.multiply(row["fat"], target_to_this_ratio), 2),

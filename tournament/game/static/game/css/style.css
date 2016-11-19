@@ -221,7 +221,7 @@ input.play[type="submit"]:hover {
 }
 
 .grid {
-  width: 900px;
+  width: 1000px;
   height: 100%;
   position: absolute;
   top: 900px;
@@ -232,8 +232,8 @@ input.play[type="submit"]:hover {
 }
 
 .grid-element {
-  width: 150px;
-  height: 320px;
+  width: 170px;
+  height: 300px;
   border: 1px solid #cccccc;
   float: left;
   margin: 10px 10px 10px 10px;

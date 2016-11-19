@@ -25,6 +25,7 @@ class Item(models.Model):
     matches_won = models.IntegerField(default=0)
 
     # Price
+    price = models.FloatField(default=0.0)
     price_per_serving = models.FloatField(default=0.0)
     serving_size = models.IntegerField(default=0)
 
