@@ -209,7 +209,6 @@ input.play[type="submit"]:hover {
 }
 
 .compare-button {
-  font-family: Arial;
   font-weight: bold;
   font-size: 14px;
   width: 160px;
@@ -222,6 +221,7 @@ input.play[type="submit"]:hover {
 }
 
 .grid {
+  font-family: Helvetica,Arial,sans-serif;
   width: 1000px;
   height: 100%;
   position: absolute;

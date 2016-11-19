@@ -18,7 +18,7 @@
       <p style="font-size: 18px;">{{ item.name|title }}</p>
       <p style="position: absolute; bottom: 80;">${{ item.price }}</p>
       <a style="position: absolute; bottom: 5;" href="">
-        <img width="80px" src="{% static 'game/images/add_to_cart.png' %}"></img>
+        <img width="85px" src="{% static 'game/images/add_to_cart.png' %}"></img>
       </a>
       <a class="compare-button" style="position: absolute; bottom: 50; color: #ffffff;" href="{% url 'rules' %}?first={{item.name}}">Enter into tournament</a>
     </div>
