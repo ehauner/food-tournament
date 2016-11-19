@@ -11,17 +11,18 @@
     <span class="background">Pick Your First Competitor</span>
   </h1>
 
-<div class="registration-centre">
-  <div class="bottom">
+<!-- <div class="registration-centre"> -->
+  <div class="grid">
   {% for item in items %}
-    <div class="col">
-      <img src="{{ item.photo_url }}" height="100px">
-      <p style="width: 86px;">
-        <a href="{% url 'rules' %}?first={{item.name}}">
-          {{ item.name|title }}
-        </a>
-      </p>
+    <div class="grid-element">
+      <img align="middle" src="{{ item.photo_url }}" height="100px">
+      <p style="width: 86px; font-size: 18px;">{{ item.name|title }}</p>
+      <p style="position: absolute; bottom: 80;">$PRICE</p>
+      <a style="position: absolute; bottom: 5;" href="">
+        <img width="80px" src="{% static 'game/images/add_to_cart.png' %}"></img>
+      </a>
+      <a class="compare-button" style="position: absolute; bottom: 50;" href="{% url 'rules' %}?first={{item.name}}">Enter into tournament</a>
     </div>
   {% endfor %}
   </div>
-</div>
+<!-- </div> -->
