@@ -10,6 +10,21 @@ A tournament style comparison tool for food. This is a project for UBC's CPSC 34
 6. In your Internet browser, navigate to `127.0.0.1:8000/game/upload`.
 7. Enjoy.
 
+## Setup for Windows
+1. Open terminal and navigate to a directory where you want to store this project.
+2. Enter `git clone https://github.com/ehauner/food-tournament.git`. This will download the code to your current directory.
+3. CD into the `food-tournament/tournament/`.
+4. Tpye in 'python get-pip.py'
+5. After pip installation tpye 'pip install django==1.8'
+6. After that install miniconda http://conda.pydata.org/miniconda.html
+7. tpye in 'conda install pandas' & 'conda install numpy'
+8. CD into the `food-tournament/tournament/`.
+9. Make a backup of cereal-11.csv
+10. type in 'python clean.sh'
+11. type in 'python manage.py migrate'
+12. type in 'python manage.py runserver'
+13. In your Internet browser, navigate to `127.0.0.1:8000/game/upload`.
+14. ???? Profit.
 ## Upload 
 Required: csv file of foods to be compared with the following attributes:
 - name (string)
